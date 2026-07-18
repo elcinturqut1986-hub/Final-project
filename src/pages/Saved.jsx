@@ -1,10 +1,11 @@
 import Sidebar from '../components/layout/Sidebar'
 import MobileNav from '../components/layout/MobileNav'
 import ArticleCard from '../components/article/ArticleCard'
-import { useSaved } from '../context/SavedContext'
+import { useArticles } from '../context/ArticleContext'
 
 const Saved = () => {
-  const { savedArticles } = useSaved()
+  const { allArticles } = useArticles()
+  const savedArticles = allArticles.filter(article => article.saved)
 
   return (
     <div className="mx-auto flex w-full max-w-7xl">
